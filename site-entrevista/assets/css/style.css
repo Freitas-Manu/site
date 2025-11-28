@@ -1,51 +1,50 @@
-/* Fonte moderna e limpa, similar à utilizada em grandes portais de notícias */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
-
-:root {
-    /* Paleta G1 Roxo */
-    --cor-primaria: #FFFFFF;     /* Fundo principal: Branco */
-    --cor-secundaria: #F5F5F5;  /* Fundo secundário/cinza claro */
-    --cor-texto-escuro: #333333; /* Texto principal */
-    --cor-link: #1A73E8;        /* Azul padrão para links internos/corpo */
-    --cor-destaque-principal: #7C4DFF; /* Roxo vibrante (substitui o vermelho do G1) */
-    --cor-destaque-titulo: #5E35B1; /* Roxo escuro para títulos */
-    --largura-max: 1100px;
-}
-
+/* =========================================
+   1. RESET E VARIÁVEIS (Paleta Roxa)
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    /* Tons de Roxo Profissionais */
+    --primary-color: #6A1B9A;    /* Roxo Escuro/Índigo (Cor principal) */
+    --secondary-color: #8E24AA;  /* Roxo Vibrante para detalhes/hover */
+    --accent-color: #F3E5F5;     /* Lavanda muito claro para fundos suaves */
+    
+    /* Cores Neutras (Estilo Jornal) */
+    --bg-color: #f7f7f7;         /* Cinza muito claro para o fundo da página */
+    --card-bg: #ffffff;          /* Branco para o conteúdo */
+    --text-dark: #1a1a1a;        /* Preto suave para títulos */
+    --text-body: #333333;        /* Cinza escuro para leitura */
+    --text-light: #666666;       /* Cinza para legendas e subtítulos */
+    --border-color: #e0e0e0;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.5;
-    color: var(--cor-texto-escuro);
-    background-color: var(--cor-secundaria);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte padrão de notícias */
+    background-color: var(--bg-color);
+    color: var(--text-body);
+    line-height: 1.6;
 }
 
-main {
-    flex-grow: 1;
-}
-
-/* --- Layout Base --- */
-.container {
-    width: 95%;
-    max-width: var(--largura-max);
-    margin: auto;
-    padding: 0 10px;
-    overflow: hidden;
-}
-
-/* --- Cabeçalho (Estilo G1) --- */
-.header-main {
-    background-color: var(--cor-primaria);
+/* =========================================
+   2. CABEÇALHO (HEADER)
+   ========================================= */
+header {
+    background-color: var(--primary-color);
     padding: 15px 0;
-    border-bottom: 3px solid var(--cor-destaque-principal);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .header-content {
@@ -54,181 +53,204 @@ main {
     align-items: center;
 }
 
-.logo-area a {
-    /* Grande, negrito, central */
-    font-size: 2.2em;
-    font-weight: 900;
-    color: var(--cor-destaque-titulo);
+.logo {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
     text-decoration: none;
     letter-spacing: -1px;
 }
 
-.data-atual {
-    font-size: 0.9em;
-    color: #666;
-    font-weight: 400;
-}
-
-/* --- Navegação de Seções (Menu) --- */
-.nav-section {
-    background-color: var(--cor-destaque-principal);
-    border-top: 1px solid var(--cor-destaque-titulo);
-}
-
-.nav-section ul {
+nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0;
+    gap: 25px;
 }
 
-.nav-section ul li a {
-    display: block;
-    padding: 12px 20px;
-    color: var(--cor-primaria);
+nav a {
+    color: white;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: opacity 0.3s;
 }
 
-.nav-section ul li a:hover,
-.nav-section ul li a.active {
-    background-color: var(--cor-destaque-titulo); /* Roxo mais escuro no hover */
+nav a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
-/* --- Blocos de Conteúdo/Notícias (G1 Cards) --- */
-.secao-principal {
-    padding: 30px 0;
-}
-
-.bloco-conteudo {
-    background-color: var(--cor-primaria);
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil de card */
-}
-
-.main-title {
-    font-size: 2.5em;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 15px;
-    color: var(--cor-destaque-titulo);
-    border-left: 5px solid var(--cor-destaque-principal); /* Linha lateral de destaque G1 */
-    padding-left: 15px;
-}
-
-.bloco-conteudo h2 {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: var(--cor-destaque-titulo);
-    margin-top: 15px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--cor-secundaria);
-    padding-bottom: 5px;
-}
-
-.bloco-conteudo p {
-    margin-bottom: 1em;
-}
-
-.destaque-chamada {
-    font-size: 1.1em;
-    font-weight: 700;
-    color: var(--cor-destaque-principal);
-    display: block;
-    margin-top: 15px;
-}
-
-/* --- Layout da Entrevista (Q&A) --- */
-.entrevista-qa .pergunta {
-    font-weight: 700;
-    color: var(--cor-destaque-titulo);
-    margin-top: 20px;
-    font-size: 1.1em;
-    border-bottom: 2px solid var(--cor-secundaria);
-    padding-bottom: 5px;
-}
-
-.entrevista-qa .resposta {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-left: 3px solid var(--cor-destaque-principal);
-    background-color: var(--cor-secundaria);
-}
-
-/* --- Galeria de Imagens (Grid) --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.gallery-grid figure {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: var(--cor-primaria);
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-.gallery-grid figcaption {
-    padding: 10px;
-    font-size: 0.9em;
-    color: var(--cor-texto-escuro);
-    font-weight: 400;
-}
-
-/* --- Rodapé (Footer) --- */
-.main-footer {
-    background-color: var(--cor-destaque-titulo);
-    color: var(--cor-primaria);
-    text-align: center;
-    padding: 20px 0;
+/* =========================================
+   3. CONTEÚDO PRINCIPAL (MAIN)
+   ========================================= */
+main {
+    background-color: var(--card-bg);
     margin-top: 30px;
-    font-size: 0.85em;
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: 4px; /* Leve arredondamento */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.social-links a {
-    color: var(--cor-secundaria);
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
+h1 {
+    font-size: 2.4rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 700;
 }
 
-.social-links a:hover {
-    color: var(--cor-primaria);
+h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 5px solid var(--secondary-color); 
 }
 
-/* --- Responsividade --- */
+h3 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.img-legend {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* =========================================
+   4. ESTILO DA ENTREVISTA
+   ========================================= */
+.interview-content {
+    margin-top: 30px;
+}
+
+.interview-block {
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.interview-block:last-child {
+    border-bottom: none;
+}
+
+.question {
+    font-weight: 700;
+    color: var(--primary-color); 
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.answer {
+    font-size: 1.05rem;
+    color: var(--text-body);
+    text-align: justify;
+}
+
+/* Caixa de Destaque (Quote Box) */
+.quote-box {
+    background-color: var(--accent-color);
+    color: #4A148C; /* Roxo bem escuro para texto */
+    padding: 25px;
+    margin: 30px 0;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif; 
+    border-left: 6px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+}
+
+/* =========================================
+   5. FORMULÁRIO (Contato)
+   ========================================= */
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* =========================================
+   6. RODAPÉ (FOOTER)
+   ========================================= */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: auto; 
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* =========================================
+   7. RESPONSIVIDADE
+   ========================================= */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
-        text-align: center;
+        gap: 15px;
     }
-    .data-atual {
-        margin-top: 10px;
-    }
-    .nav-section ul {
+
+    nav ul {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        gap: 10px;
     }
-    .nav-section ul li a {
-        text-align: center;
-        border-bottom: 1px solid var(--cor-destaque-titulo);
+
+    h1 {
+        font-size: 1.8rem;
     }
-    .main-title {
-        font-size: 2em;
+
+    main {
+        padding: 20px;
+    }
+    
+    .quote-box {
+        font-size: 1.1rem;
     }
 }
